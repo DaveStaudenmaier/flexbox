@@ -1,0 +1,125 @@
+.container {
+  height: 80%;
+  width: 98%;
+  display: flex;
+  border-style: solid;
+  border-width: 2px;
+  margin: 10px;
+}
+
+.container-header {
+  margin-left: 10px;
+}
+
+button {
+  margin: 10px;
+}
+
+.explanation {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.button-align {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.checkbox-align {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  background-color: lightgrey;
+  height: 200px;
+  width: 300px;
+}
+
+.card-container {
+  margin: 10px;
+}
+
+.card-title {
+  text-align: center;
+  font-size: 16px;
+}
+
+mat-card-content {
+  font-size: 12px;
+}
+
+.default-position {
+  justify-content: left;
+  align-items: top;
+}
+
+.justify-left {
+  justify-content: flex-start;
+}
+
+.justify-right {
+  justify-content: flex-end;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.space-between {
+  justify-content: space-between;
+}
+
+.space-around {
+  justify-content: space-around;
+}
+
+.space-evenly {
+  justify-content: space-evenly;
+}
+
+.align-top {
+  align-items: flex-start;
+}
+
+.align-bottom {
+  align-items: flex-end;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.align-multiple-horizontal {
+  flex-direction: row;
+}
+
+.align-multiple-vertical {
+  flex-direction: column;
+}
+
+.wrap {
+  flex-wrap: wrap;
+}
+
+.no-wrap {
+  flex-wrap: nowrap;
+}
+
+.wrap-reverse {
+  flex-wrap: wrap-reverse
+}
+
+.seperate {
+  border-style: solid;
+  border-width: 2px;
+}
+
+mat-checkbox {
+  margin-left: 20px;
+}

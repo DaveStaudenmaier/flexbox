@@ -1,0 +1,156 @@
+<div>
+  <div class="button-align">
+    <button mat-raised-button [ngClass]="lButtonColor" (click)="onLeft()">{{ justifyStart }}</button>
+    <button mat-raised-button [ngClass]="rButtonColor" (click)="onRight()">{{ justifyEnd }}</button>
+    <button mat-raised-button [ngClass]="cButtonColor" (click)="onCenter()">{{ justifyCenter }}</button>
+    <button *ngIf="displayMultipleElements" mat-raised-button [ngClass]="sbButtonColor" (click)="onSpaceBetween()">Space Between</button>
+    <button *ngIf="displayMultipleElements" mat-raised-button [ngClass]="saButtonColor" (click)="onSpaceAround()">Space Around</button>
+    <button *ngIf="displayMultipleElements" mat-raised-button [ngClass]="seButtonColor" (click)="onSpaceEvenly()">Space Evenly</button>
+
+    <div class="seperate"></div>
+
+    <button mat-raised-button [ngClass]="tButtonColor" (click)="onTop()">{{ alignStart }}</button>
+    <button mat-raised-button [ngClass]="bButtonColor" (click)="onBottom()">{{ alignEnd }}</button>
+    <button mat-raised-button [ngClass]="acButtonColor" (click)="onAlignCenter()">{{ alignCenter }}</button>
+    <button *ngIf="displayMultipleElements" mat-raised-button [ngClass]="amhButtonColor" (click)="onAlignHorizontal()">Align Multiple Horizontally</button>
+    <button *ngIf="displayMultipleElements" mat-raised-button [ngClass]="amvButtonColor" (click)="onAlignVertical()">Align Multiple Vertically</button>
+  </div>
+</div>
+
+<p class="container-header">
+  For container class use 'display: flex':
+  <mat-checkbox (change)="onMultipleElements()" [formControl]="multipleElements">See Multiple Elements</mat-checkbox>
+  <mat-checkbox *ngIf="displayMultipleElements" (change)="onWrap()" [formControl]="wrapMultiple">Wrap</mat-checkbox>
+</p>
+
+<div class="container" [ngClass]="positionClass">
+  <div class="card-container">
+    <mat-card class="card">
+      <mat-card-header>
+        <mat-card-title class="card-title">{{ positionTitle }}</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <ng-content *ngTemplateOutlet='positionJustifyClassRef'></ng-content>
+        <ng-content *ngTemplateOutlet='positionAlignClassRef'></ng-content>
+        <ng-content *ngTemplateOutlet='positionMultipleClassRef'></ng-content>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <div class="card-container" *ngIf="displayMultipleElements">
+    <mat-card class="card">
+      <mat-card-header>
+        <mat-card-title class="card-title">{{ positionTitle }}</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <ng-content *ngTemplateOutlet='positionJustifyClassRef'></ng-content>
+        <ng-content *ngTemplateOutlet='positionAlignClassRef'></ng-content>
+        <ng-content *ngTemplateOutlet='positionMultipleClassRef'></ng-content>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
+
+<div class="explanation">
+  <p><b>{{ explanation }}</b></p>
+</div>
+
+<ng-template #defaultPosition>
+</ng-template>
+
+<ng-template #left>
+  <p>
+    .justify-left {{ '{' }}<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;justify-content: flex-start;<br>
+    {{ '}' }}
+  </p>
+</ng-template>
+
+<ng-template #right>
+  <p>
+    .justify-right {{ '{' }}<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;justify-content: flex-end;<br>
+    {{ '}' }}
+  </p>
+</ng-template>
+
+<ng-template #center>
+  <p>
+    .justify-center {{ '{' }}<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;justify-content: center;<br>
+    {{ '}' }}
+  </p>
+</ng-template>
+
+<ng-template #spaceBetween>
+  <p>
+    .space-between {{ '{' }}<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;justify-content: space-between;<br>
+    {{ '}' }}
+  </p>
+</ng-template>
+
+<ng-template #spaceAround>
+  <p>
+    .space-around {{ '{' }}<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;justify-content: space-around;<br>
+    {{ '}' }}
+  </p>
+</ng-template>
+
+<ng-template #spaceEvenly>
+  <p>
+    .space-evenly {{ '{' }}<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;justify-content: space-evenly;<br>
+    {{ '}' }}
+  </p>
+</ng-template>
+
+<ng-template #top>
+  <p>
+    .align-top {{ '{' }}<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;align-items: flex-start;<br>
+    {{ '}' }}
+  </p>
+</ng-template>
+
+<ng-template #bottom>
+  <p>
+    .align-bottom {{ '{' }}<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;align-items: flex-end;<br>
+    {{ '}' }}
+  </p>
+</ng-template>
+
+<ng-template #alignCenter2>
+  <p>
+    .align-center {{ '{' }}<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;align-items: center;<br>
+    {{ '}' }}
+  </p>
+</ng-template>
+
+<ng-template #alignMultipleHorizontal>
+  <p>
+    .align-multiple-horizontal {{ '{' }}<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;flex-direction: row;<br>
+    {{ '}' }}
+  </p>
+</ng-template>
+
+<ng-template #alignMultipleVertical>
+  <p>
+    .align-multiple-vertical {{ '{' }}<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;flex-direction: column;<br>
+    {{ '}' }}
+  </p>
+</ng-template>
+
+<ng-template #wrap>
+  <p>
+    .wrap {{ '{' }}<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;flex-wrap: wrap;<br>
+    {{ '}' }}
+  </p>
+</ng-template>
+
