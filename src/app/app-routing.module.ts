@@ -4,6 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { PositioningComponent } from './positioning/positioning.component';
 
 const routes: Routes = [
+  {path: '', redirectTo: 'positioning', pathMatch: 'full'},
   {path: 'positioning', component: PositioningComponent}
 ];
 

@@ -47,11 +47,6 @@ button {
 
 .card-title {
   text-align: center;
-  font-size: 16px;
-}
-
-mat-card-content {
-  font-size: 12px;
 }
 
 .default-position {
@@ -122,4 +117,8 @@ mat-card-content {
 
 mat-checkbox {
   margin-left: 20px;
+}
+
+.content {
+  font-size: 120%;
 }

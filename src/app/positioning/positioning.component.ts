@@ -65,6 +65,8 @@ export class PositioningComponent implements OnInit {
   alignEnd = 'Align Bottom';
   alignCenter = 'Align Center';
 
+  private flexDirection = 'row';
+
   constructor(private snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
@@ -90,7 +92,12 @@ export class PositioningComponent implements OnInit {
     } else {
       this.positionJustifyClassRef = this.leftSide;
       this.resetJustifyButtons();
-      this.positionJustifyTitle = 'Justify Left';
+      if (this.flexDirection === 'row') {
+        this.positionJustifyTitle = 'Justify Left';
+      } else {
+        this.positionJustifyTitle = 'Justify Top';
+      }
+
       this.positionJustifyClass = 'justify-left';
       this.combinePositionClasses();
       this.lButtonColor = '';
@@ -108,7 +115,11 @@ export class PositioningComponent implements OnInit {
     } else {
       this.positionJustifyClassRef = this.rightSide;
       this.resetJustifyButtons();
-      this.positionJustifyTitle = 'Justify Right';
+      if (this.flexDirection === 'row') {
+        this.positionJustifyTitle = 'Justify Right';
+      } else {
+        this.positionJustifyTitle = 'Justify Bottom';
+      }
       this.positionJustifyClass = 'justify-right';
       this.combinePositionClasses();
       this.rButtonColor = '';
@@ -198,7 +209,11 @@ export class PositioningComponent implements OnInit {
     } else {
       this.positionAlignClassRef = this.top;
       this.resetAlignButtons();
-      this.positionAlignTitle = 'Align Top';
+      if (this.flexDirection === 'row') {
+        this.positionAlignTitle = 'Align Top';
+      } else {
+        this.positionAlignTitle = 'Align Left';
+      }
       this.positionAlignClass = 'align-top';
       this.combinePositionClasses();
       this.tButtonColor = '';
@@ -216,7 +231,11 @@ export class PositioningComponent implements OnInit {
     } else {
       this.positionAlignClassRef = this.bottom;
       this.resetAlignButtons();
-      this.positionAlignTitle = 'Align Bottom';
+      if (this.flexDirection === 'row') {
+        this.positionAlignTitle = 'Align Bottom';
+      } else {
+        this.positionAlignTitle = 'Align Right';
+      }
       this.positionAlignClass = 'align-bottom';
       this.combinePositionClasses();
       this.bButtonColor = '';
@@ -243,6 +262,25 @@ export class PositioningComponent implements OnInit {
   }
 
   onAlignHorizontal() {
+    this.flexDirection = 'row';
+
+    if (this.lButtonColor === '') {
+      this.lButtonColor = 'mat-primary';
+      this.onLeft();
+    }
+    if (this.rButtonColor === '') {
+      this.rButtonColor = 'mat-primary';
+      this.onRight();
+    }
+    if (this.tButtonColor === '') {
+      this.tButtonColor = 'mat-primary';
+      this.onTop();
+    }
+    if (this.bButtonColor === '') {
+      this.bButtonColor = 'mat-primary';
+      this.onBottom();
+    }
+
     if (this.amhButtonColor === '') {
       this.positionMultipleClassRef = this.defaultPosition;
       this.resetBottomButtons();
@@ -256,7 +294,7 @@ export class PositioningComponent implements OnInit {
       this.positionMultipleClass = 'align-multiple-horizontal';
       this.combinePositionClasses();
       this.amhButtonColor = '';
-      this.explanation = 'Use "flex-direction" for multiple elements to show in a row or a column';
+      this.explanation = 'Use "flex-direction" for multiple elements to show in a row or a column.  Note that the meaning of flex-start/flex-end for Justify and Align changes.';
     }
     this.justifyStart = 'Justify Left';
     this.justifyEnd = 'Justify Right';
@@ -267,6 +305,24 @@ export class PositioningComponent implements OnInit {
   }
 
   onAlignVertical() {
+    this.flexDirection = 'column';
+
+    if (this.lButtonColor === '') {
+      this.lButtonColor = 'mat-primary';
+      this.onLeft();
+    }
+    if (this.rButtonColor === '') {
+      this.rButtonColor = 'mat-primary';
+      this.onRight();
+    }
+    if (this.tButtonColor === '') {
+      this.tButtonColor = 'mat-primary';
+      this.onTop();
+    }
+    if (this.bButtonColor === '') {
+      this.bButtonColor = 'mat-primary';
+      this.onBottom();
+    }
     if (this.amvButtonColor === '') {
       this.positionMultipleClassRef = this.defaultPosition;
       this.resetBottomButtons();
@@ -280,7 +336,7 @@ export class PositioningComponent implements OnInit {
       this.positionMultipleClass = 'align-multiple-vertical';
       this.combinePositionClasses();
       this.amvButtonColor = '';
-      this.explanation = 'Use "flex-direction" for multiple elements to show in a row or a column';
+      this.explanation = 'Use "flex-direction" for multiple elements to show in a row or a column.  Note that the meaning of flex-start/flex-end for Justify and Align changes.';
       this.justifyStart = 'Justify Top';
       this.justifyEnd = 'Justify Bottom';
       this.justifyCenter = 'Justify Center';
